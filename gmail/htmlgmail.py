@@ -5,7 +5,7 @@ from email.message import EmailMessage
 
 pw = 'usxm yfta nnbd lndi'
 profile = os.environ.get('PROFILE')
-reciver = input ('enter reciver addr\b')
+reciver = input ('enter reciver addr\n')
 
 
 
@@ -15,12 +15,18 @@ msg['From'] = profile
 msg['To'] = reciver
 content = input('plz input ur content\n')
 msg.set_content(content)
+msg.add_alternative(""" \
+    <!doctype html>
+<html>
+<h1>hello </h1>
+<form >
+<input type = 'text'/>
+<input type = 'submit' value = 'submit' />
+</form>
 
-with open('test.png','rb') as f:
-    file_data = f.read()
-    file_type = imghdr.what(f.name)
-    file_name = f.name 
-msg.add_attachment(file_data,maintype = 'image',subtype= file_type)
+</html>
+
+""",subtype = 'html')
 
 
 with smtplib.SMTP_SSL('smtp.gmail.com',465) as smtp:

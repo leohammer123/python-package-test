@@ -15,12 +15,14 @@ msg['From'] = profile
 msg['To'] = reciver
 content = input('plz input ur content\n')
 msg.set_content(content)
+files = ['test.pdf']
 
-with open('test.png','rb') as f:
-    file_data = f.read()
-    file_type = imghdr.what(f.name)
-    file_name = f.name 
-msg.add_attachment(file_data,maintype = 'image',subtype= file_type,filename = file_name)
+
+for file in files: #open the file in files
+    with open(file,'rb') as f:
+        file_data = f.read()
+        file_name = f.name #check property
+    msg.add_attachment(file_data,maintype = 'application',subtype= 'octet-stream',filename = file_name)
 
 
 with smtplib.SMTP_SSL('smtp.gmail.com',465) as smtp:
