@@ -5,7 +5,7 @@ from email.message import EmailMessage
 
 pw = 'usxm yfta nnbd lndi'
 profile = os.environ.get('PROFILE')
-reciver = input ('enter reciver addr\n')
+reciver = input ('enter reciver addr\b')
 
 
 
