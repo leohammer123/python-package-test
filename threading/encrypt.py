@@ -1,4 +1,4 @@
-flag = "flag{this_is_a_fake_flag}"
+flag = os.getenv('flag')
 
 def encrypt(s):
      alphabet = 'abcdefghijklmnopqrstuvwxyz'
@@ -20,4 +20,4 @@ def encrypt(s):
  
 print(encrypt(flag))
 
-# output :
+# output : }31gbe_ugvj_enyvzvf_fv_fvug{tnys
